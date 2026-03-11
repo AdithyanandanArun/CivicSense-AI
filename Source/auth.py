@@ -27,7 +27,6 @@ def init_auth():
 def create_user(username, email, password):
     db = SessionLocal()
     try:
-        # check if username or email already taken
         existing = db.query(User).filter(
             (User.username == username) | (User.email == email)
         ).first()

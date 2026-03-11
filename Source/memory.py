@@ -12,12 +12,8 @@ def embed(text):
 def save_message(session_id, role, message):
     db = SessionLocal()
     try:
-        db.add(Conversation(
-            session_id=session_id,
-            role=role,
-            message=message,
-            embedding=embed(message)
-        ))
+        db.add(Conversation(session_id=session_id,role=role,message=message,embedding=embed(message)))
+
         db.commit()
     finally:
         db.close()

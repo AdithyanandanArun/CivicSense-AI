@@ -13,7 +13,7 @@ engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine)
 Base = declarative_base()
 
-EMBED_DIM = 384  # bge-small-en-v1.5
+EMBED_DIM = 384
 
 
 class Conversation(Base):
@@ -29,6 +29,6 @@ class Conversation(Base):
 
 def init_db():
     with engine.connect() as conn:
-        conn.execute(__import__("sqlalchemy").text("CREATE EXTENSION IF NOT EXISTS vector"))
+        conn.execute(__import__("sqlalchemy").text("create extension if not exists vector"))
         conn.commit()
     Base.metadata.create_all(bind=engine)

@@ -97,20 +97,17 @@ def chat():
     scheme_context = query_schemes(user_message)
     memory_context = retrieve_relevant_messages(session_id, user_message)
 
-    print(f"\n[RAG] {len(scheme_context)} chars")
     print(scheme_context[:400])
-    print(f"\n[MEMORY] {len(memory_context)} messages")
+
     for m in memory_context:
         print(f"  {m['role']}: {m['content'][:80]}")
 
     system_prompt = f"""You are CivicSense AI, an assistant that answers questions about Indian government schemes.
-
 STRICT RULES:
 - ONLY use the scheme data provided below to answer.
-- If the answer is not in the data, say "I don't have information about that scheme."
-- Do NOT use any outside knowledge or training data.
+- If the answer is not in the data, tell the user you don't have that information and ask "Would you like me to search the web for this?"
+- Do NOT use any outside knowledge or training data unless the user explicitly asks you to.
 - Do NOT make up or guess any details.
-
 --- Scheme data ---
 {scheme_context}
 -------------------"""
@@ -120,10 +117,9 @@ STRICT RULES:
         messages.extend(memory_context)
     messages.append({"role": "user", "content": user_message})
 
-    response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=messages
-    )
+    response = client.chat.completions.create( model="llama-3.3-70b-versatile",messages=messages)
+
+
     reply = response.choices[0].message.content
 
     save_message(session_id, "user", user_message)
