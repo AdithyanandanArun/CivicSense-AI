@@ -1,3 +1,4 @@
+accelerate==1.13.0
 aiohappyeyeballs==2.6.1
 aiohttp==3.13.3
 aiosignal==1.4.0
@@ -8,10 +9,10 @@ asyncpg==0.31.0
 attrs==25.4.0
 autocommand==2.2.2
 banks==2.4.1
+bcrypt==5.0.0
 beautifulsoup4==4.14.3
 blinker==1.9.0
 build==1.4.0
-caelestia==1.0.4.dev2+g6e5ab6db5
 certifi==2026.1.4
 cffi==2.0.0
 charset-normalizer==3.4.4
@@ -129,6 +130,7 @@ scikit-learn==1.8.0
 scipy==1.17.1
 SecretStorage==3.3.3
 sentence-transformers==5.2.3
+sentencepiece==0.2.1
 setuptools==82.0.0
 setuptools-scm==9.2.2
 shellingham==1.5.4

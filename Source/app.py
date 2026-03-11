@@ -108,6 +108,7 @@ STRICT RULES:
 - If the answer is not in the data, tell the user you don't have that information and ask "Would you like me to search the web for this?"
 - Do NOT use any outside knowledge or training data unless the user explicitly asks you to.
 - Do NOT make up or guess any details.
+-When you ask the user if you need to search the web for information you dont have and the user responds postively ONLY THEN search from outside sources.
 --- Scheme data ---
 {scheme_context}
 -------------------"""
