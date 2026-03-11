@@ -2,13 +2,29 @@
 
 CivicSense AI is a Retrieval-Augmented Generation (RAG) based civic intelligence assistant that helps citizens understand and navigate Indian government schemes using grounded A responses.
 
+How to setup :
 
-Progress so far :
+1. Clone the repository using :
 
-Made the repository.
+`  git clone https://github.com/AdithyanandanArun/CivicSense-AI.git`
 
-Made a database in postgresql.
+2. Create a virtual environment
+```
+  python -m venv venv
+  source venv/bin/activate
+```
+3. Install the Dependencies :
 
-Found some schemes for usage by the RAG
+```
+  cd CivicSense-AI
+  pip install -r requirements.txt
+```
+4. Configure environment variables
 
-Made the basic file structure.
+-Create a .env file inside the Source Folder.
+```
+  groqapi=
+  database_url=
+  secretkey=
+```
+   
